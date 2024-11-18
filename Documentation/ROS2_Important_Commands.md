@@ -144,7 +144,7 @@ When doing this it will allow you to control the terminal within the display win
 <h2>rqt_graph</h2>
 rqt graph will display the given information about the nodes and the topics that are currently being played with:
 
-![alt text](/Images/rqt_graph.png)
+![image](/Images/rqt_graph.png)
 
 the rectangles are the topics, and the ovals are the nodes.
 nodes will send messages through services which will be passed down through topics in which those topics will send those messages to other nodes.
@@ -236,7 +236,7 @@ This will be very useful and handy to know whether there is an issue with our Fo
 #Command to open the console:
 ros2 run rqt_console rqt_console
 ```
-![alt text](/Images/rqt_console.png)
+![image](/Images/rqt_console.png)
 
 The loggers level of severity is ordered in this manner:
 There is no exact standard for what each level indicates, but it’s safe to assume that:
