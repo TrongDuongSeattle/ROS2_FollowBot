@@ -79,8 +79,8 @@ The following steps outline how you can start developing packages:
 
 1. **Clone the Repository**:
 ```bash
-git clone https://github.com/YourUsername/FollowBot.git
-cd FollowBot
+git clone https://github.com/FrankVanris2/ROS2_FollowBot.git
+cd ROS2_FollowBot
 ```
 2. **Navigate to the `src` Directory**:
 ```bash
