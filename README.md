@@ -73,6 +73,10 @@ ros2 service list
 ros2 service call /service_name std_srvs/srv/Empty
 ```
 
+### Extra Documentation
+For more documentation in how to use ROS2 please follow the below links:
+[ROS2 Jazzy Documentation](https://docs.ros.org/en/jazzy/Installation.html)
+[ROS2 Command List]
 ### Developing for FollowBot:
 FollowBot is a smart robotic device that utilizes ROS2, computer vision, and machine learning to follow users and avoid obstacles.
 The following steps outline how you can start developing packages:
