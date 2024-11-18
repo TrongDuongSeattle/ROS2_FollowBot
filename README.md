@@ -1,5 +1,5 @@
 # ROS2 FollowBot
-Welcome to the ROS2 FollowBot repository that alines with our master repository, FollowBot! This repository
+Welcome to the ROS2 FollowBot repository that aline with our master repository, FollowBot! This repository
 is dedicate to creating packages for the robotic side of FollowBot. Below, you'll find an overview of the basic ROS2 
 commands and essential information to get started with developing for FollowBot.
 
