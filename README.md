@@ -79,6 +79,9 @@ For more documentation in how to use ROS2 please follow the below links:
 [ROS2 Jazzy Documentation](https://docs.ros.org/en/jazzy/Installation.html)
 
 [ROS2 Command List](https://github.com/FrankVanris2/ROS2_FollowBot/blob/master/Documentation/ROS2_Important_Commands.md)
+
+[ROS2 VSCode Development](https://github.com/FrankVanris2/ROS2_FollowBot/blob/master/Documentation/ROS2_VSCodeDev.md)
+
 ### Developing for FollowBot:
 FollowBot is a smart robotic device that utilizes ROS2, computer vision, and machine learning to follow users and avoid obstacles.
 The following steps outline how you can start developing packages:
