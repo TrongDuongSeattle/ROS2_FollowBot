@@ -5,7 +5,7 @@ commands and essential information to get started with developing for FollowBot.
 
 
 ### Plans for development:
-We will be developing a learning model that will allow FollowBot to follow the user by using computer vision technologies. With the ML model known as YOLO that we will be using and applying we will process images as features into our model in order for the device to follow the user.
+We will be developing a learning model that enables FollowBot to follow the user using computer vision technologies. By implementing the ML model known as YOLO, we will process images as features within our model to allow the device to effectively track and follow the user.
 ![image](https://github.com/user-attachments/assets/7a8ff793-b6cc-4f62-8e2a-382b5d100884)
 
 ### Prerequisites
