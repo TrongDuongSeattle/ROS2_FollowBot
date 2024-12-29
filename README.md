@@ -3,6 +3,11 @@ Welcome to the ROS2 FollowBot repository that aline with our master repository, 
 is dedicate to creating packages for the robotic side of FollowBot. Below, you'll find an overview of the basic ROS2 
 commands and essential information to get started with developing for FollowBot.
 
+
+### Plans for development:
+We will be developing a learning model that will allow FollowBot to follow the user by using computer vision technologies. With the ML model known as YOLO that we will be using and applying we will process images as features into our model in order for the device to follow the user.
+![image](https://github.com/user-attachments/assets/7a8ff793-b6cc-4f62-8e2a-382b5d100884)
+
 ### Prerequisites
 * **Raspberry Pi**: Ensure you have a Raspberry Pi 4 or better with more than 4GB of RAM.
 * **ROS2**: You must be using the latest version of ROS2, which is Jazzy.
