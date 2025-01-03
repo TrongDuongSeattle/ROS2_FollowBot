@@ -6,6 +6,7 @@ commands and essential information to get started with developing for FollowBot.
 ### Prerequisites
 * **Raspberry Pi**: Ensure you have a Raspberry Pi 4 or better with more than 4GB of RAM.
 * **ROS2**: You must be using the latest version of ROS2, which is Jazzy.
+* **Ubuntu Desktop 24.04 11 LTS (64 bit)**: 
 * **Languages**: Developers can create packages in either C++ or Python.
 
 ### Basic ROS2 Commands
