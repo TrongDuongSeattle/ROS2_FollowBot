@@ -110,6 +110,9 @@ Now how will you fix this issue you may ask? Well the simple answer is that you 
 I downloaded Xming so here is the site to it:
 http://www.straightrunning.com/XmingNotes/
 
+When in the website it may be confusing to know which one to download, but it should be XMing within the public releases:
+![This is what you need](https://github.com/user-attachments/assets/d1cce900-b7a4-4738-aa11-886febf2a279)
+
 once you have that installed you will need to open it, it will be called Xlaunch. Click `next` till you reach *extra settings*. When your in extra settings click `Disable access control`, this will allow you access to use Xming from any machine/client which is necessary for running any type of visual software on your ubuntu machine through your windows machine.
 
 after accomplishing this you will then need to go into your ubuntu machine, when inside you will need to open your `.bashrc` file when inside you will need to include this:
