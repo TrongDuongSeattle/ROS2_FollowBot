@@ -115,6 +115,10 @@ When in the website it may be confusing to know which one to download, but it sh
 
 once you have that installed you will need to open it, it will be called Xlaunch. Click `next` till you reach *extra settings*. When your in extra settings click `Disable access control`, this will allow you access to use Xming from any machine/client which is necessary for running any type of visual software on your ubuntu machine through your windows machine.
 
+**Update:** Since XMing has been updated a bit, it is best when clicking through next look for an Icon that allows you to disable access control. It should look similar to this:
+![image](https://github.com/user-attachments/assets/01c19bad-07bd-49f8-8524-06b983c206f9)
+
+
 after accomplishing this you will then need to go into your ubuntu machine, when inside you will need to open your `.bashrc` file when inside you will need to include this:
 
 ```
