@@ -47,6 +47,12 @@ ros2 pkg create --build-type ament_python my_python_package
 colcon build
 ```
 
+**Also:**
+If you are needing to install an individual package and not all of them at once you can do this command and specifiy which package you want to build
+```bash
+colcon build --packages-select my_package
+```
+
 ### Running Nodes
 * **Run a C++ Node:**
 ```bash
