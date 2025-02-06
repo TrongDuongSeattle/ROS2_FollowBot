@@ -23,6 +23,11 @@ source /opt/ros/jazzy/setup.bash
 ```
 hint: you can also place this in the .bashrc file so you don't have to always type in this command over and over again.
 
+### Important installs that are currently within this project
+* **Necessary package/library installs needed:**
+```bash
+sudo apt install libserial-dev
+```
 ### Creating a New Package
 Before creating a new package, ensure you are in the `src` directory of the `FollowBot_AROS2` workspace.
 
