@@ -1,12 +1,18 @@
 # ROS2 FollowBot
-Welcome to the ROS2 FollowBot repository that aline with our master repository, FollowBot! This repository
+Welcome to the ROS2 FollowBot repository that aligns with our master repository, FollowBot! This repository
 is dedicate to creating packages for the robotic side of FollowBot. Below, you'll find an overview of the basic ROS2 
 commands and essential information to get started with developing for FollowBot.
 
 
 ### Plans for development:
-We will be developing a learning model that enables FollowBot to follow the user using computer vision technologies. By implementing the ML model known as YOLO, we will process images as features within our model to allow the device to effectively track and follow the user.
+We will be developing a learning model that enables FollowBot to follow the user using computer vision technologies. By implementing [You Only Look Once (YOLO)](https://docs.ultralytics.com), we will process images as features within our model to allow the device to effectively track and follow the user. 
+<br>  
 ![image](https://github.com/user-attachments/assets/7a8ff793-b6cc-4f62-8e2a-382b5d100884)
+
+Additionally, we will integrate the `slam-toolbox` and `nav2` packages. This will enable FollowBot to better understand its surroundings and navigate to target locations on campus. 
+<br>  
+![image](https://github.com/user-attachments/assets/2fddc72b-3362-4b83-86e7-ba2ae07b1283)
+
 
 ### Prerequisites
 * **Raspberry Pi**: Ensure you have a Raspberry Pi 4 or better with more than 4GB of RAM.
@@ -21,7 +27,7 @@ Here are some fundamental commands to help you get started with ROS2:
 ```bash
 source /opt/ros/jazzy/setup.bash
 ```
-hint: you can also place this in the .bashrc file so you don't have to always type in this command over and over again.
+Tip: you can also place this in the .bashrc file so you don't have to always type in this command over and over again.
 
 ### Important installs that are currently within this project
 * **Necessary package/library installs needed:**
