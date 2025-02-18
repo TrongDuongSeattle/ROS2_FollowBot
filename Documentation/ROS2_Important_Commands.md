@@ -94,59 +94,83 @@ Important command when exiting an environment:
 To exit an environment properly ALWAYS do ctrl + C
 ```
 
-<h1> Important for using TurtleSim </h1>
+<h1> Windows GUI for Running the Pi </h1>
+VcXsrv is our chosen X server that allows you to run any graphical Linux application on Windows, including more complex simulations. This is especially useful for running RViz, which visualizes sensor data.
 
-Turtlesim is a visual platform that is used for testing purposes when you want to see visually what will happen with your Followbot. The issue though when using turtlesim is that it requires you to have a pre installed GUI that can be used between your current machine and your ubuntu machine running on your Raspberry pi. Thus meaning you need to make sure you have a gui installed. Follow these instructions on this site in order to gain the prerequisites for setting up the turtlesim correctly:
-https://docs.ros.org/en/jazzy/Tutorials/Beginner-CLI-Tools/Introducing-Turtlesim/Introducing-Turtlesim.html
+* Download and install VcXsrv from [SourceForge](https://sourceforge.net/projects/vcxsrv/).
 
-If you reached this point in the tutorial, and obtained the error instead of the screen then this is where I tell you in how to fix the issue:
-
-```
-#When running this you will either obtain a message or the display screen with the turtle:
-ros2 run turtlesim turtlesim_node
-```
-Now how will you fix this issue you may ask? Well the simple answer is that you need to install a GUI for the Windows SubSystem of Linux since Linux doesn't have a built in version. You will need to download Xming or VcXsrv
-
-I downloaded Xming so here is the site to it:
-http://www.straightrunning.com/XmingNotes/
-
-When in the website it may be confusing to know which one to download, but it should be XMing within the public releases:
-![This is what you need](https://github.com/user-attachments/assets/d1cce900-b7a4-4738-aa11-886febf2a279)
-
-once you have that installed you will need to open it, it will be called Xlaunch. Click `next` till you reach *extra settings*. When your in extra settings click `Disable access control`, this will allow you access to use Xming from any machine/client which is necessary for running any type of visual software on your ubuntu machine through your windows machine.
-
-**Update:** Since XMing has been updated a bit, it is best when clicking through next look for an Icon that allows you to disable access control. It should look similar to this:
-![image](https://github.com/user-attachments/assets/01c19bad-07bd-49f8-8524-06b983c206f9)
-
-
-after accomplishing this you will then need to go into your ubuntu machine, when inside you will need to open your `.bashrc` file when inside you will need to include this:
+To enable graphical applications from the Raspberry Pi or remote Ubuntu machine to display on Windows, update your .bashrc file:
 
 ```
-#Display for running any visual client and other forms of software
-export DISPLAY=YOUR_IP_ADDRESS_ON_CURRENT_MACHINE:0
-
-#Example
-export DISPLAY=10.0.0.245:0  #No spaces
+vi .bashrc
+```
+Add the following line at the end of the file, replacing ${YOUR_IP_ADDRESS_ON_CURRENT_MACHINE} with your Windows machine's IP address:
+```
+export DISPLAY=${YOUR_IP_ADDRESS_ON_CURRENT_MACHINE}:0
 ```
 
-once you have accomplished this save the file and exit it, restart your environment by closing out and reopening the command prompt and sshing again. 
-
-Now without any further a due rerun the specific turtlesim line above to see the turtle on the screen. You will be amazed by its gracefulness.
-
-
-<h2>Testing TurtleSim </h2>
-now to test if turtle sim is working correctly, you will need to input this same command in one terminal:
+Then open XLaunch; make sure to set `Clipboard`, `Primary Selection` and `Disable access control` and unset `Native opengl`. Once VcXsrv is running, execute the following command in Ubuntu to verify Rviz2 is displayed on your Windows computer:
 
 ```
-ros2 run turtlesim turtlesim_node
+ros2 run rviz2 rviz2
 ```
 
-then in a seperate terminal you will need to input this command:
+<h1> Gazebo Simulation Environment </h1>
+Gazebo Harmonic is the most compatible version for ROS2 Jazzy and is required for running simulations. It can be installed with the following commands:
+
 ```
-ros2 run turtlesim turtle_teleop_key
+sudo apt-get install curl
+sudo curl https://packages.osrfoundation.org/gazebo.gpg --output /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null
+sudo apt-get update
+sudo apt-get install gz-harmonic
 ```
 
-When doing this it will allow you to control the terminal within the display window with the arrow keys when currently in the terminal where you inputted that command.
+Check to see if Gazebo works with a basic command: `gz sim shapes.sdf`. If not, this may work:
+```
+sudo apt-get install ros-jazzy-gz-tools-vendor
+sudo apt-get install ros-jazzy-gz-sim-vendor
+. /opt/ros/jazzy/setup.bash
+```
+
+<h1> slam-toolbox Set-Up</h1>
+Install with:
+
+```
+sudo apt-get update
+sudo apt install ros-jazzy-slam-toolbox
+```
+
+We plan to use online asynchronous SLAM, which allows real-time mapping while the robot is moving. To start, copy the default configuration file into your development directory:
+
+```
+cp /opt/ros/jazzy/share/slam_toolbox/config/mapper_params_online_async.yaml {my}/{dev}/{directory}
+
+# example:
+cp /opt/ros/jazzy/share/slam_toolbox/config/mapper_params_online_async.yaml Projects/ROS2_FollowBot/FollowBotAROS2/src/mapping/config/
+```
+
+Once the parameters are adjusted to fit our setup, run `slam-toolbox` using the following command:
+
+```
+ros2 launch slam_toolbox online_async_launch.py slam_params_file:=./Projects/ROS2_FollowBot/FollowBotAROS2/src/mapping/config/mapper_params_online_async.yaml
+```
+
+In a seperate terminal, run Rviz to visualize the mapping process:
+
+```
+ros2 run rviz2 rviz2
+```
+
+In RViz, you should now see available topics such as: 
+* `/map` - The generated occupancy grid.
+* `/scan` - Incoming LiDAR or depth camera data.
+* `/odom` - Odometry data from the bot’s sensors.
+
+Our next steps include:
+* Tweak `mapper_params_online_async.yaml` to fit our FollowBot's sensor setup and environment.
+* Create a custom ROS 2 launch file to automate the startup process instead of running commands manually.
+* Integrate `nav2` package as well. 
 
 <h2>rqt_graph</h2>
 rqt graph will display the given information about the nodes and the topics that are currently being played with:
