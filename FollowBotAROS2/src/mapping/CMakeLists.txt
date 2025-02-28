@@ -10,8 +10,36 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 endif()
 
 # find dependencies
-find_package(ament_cmake REQUIRED)# uncomment the following section in order to fill in
-# further dependencies manually.
+find_package(ament_cmake REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(sensor_msgs REQUIRED)
+find_package(nav_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(tf2 REQUIRED)
+find_package(tf2_ros REQUIRED)
+
+add_executable(odometry_node followbot_nodes/odometry_node.cpp)
+ament_target_dependencies(odometry_node rclcpp sensor_msgs nav_msgs geometry_msgs tf2_ros)
+
+add_executable(mapping_node followbot_nodes/mapping_node.cpp)
+ament_target_dependencies(mapping_node rclcpp sensor_msgs geometry_msgs tf2_ros)
+
+install(TARGETS
+	odometry_node
+	mapping_node
+	DESTINATION lib/${PROJECT_NAME}
+)
+
+install(
+	DIRECTORY config/
+	DESTINATION share/${PROJECT_NAME}/config
+)
+
+install(
+	DIRECTORY launch/
+	DESTINATION share/${PROJECT_NAME}/launch
+)
+
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   # the following line skips the linter which checks for copyrights
