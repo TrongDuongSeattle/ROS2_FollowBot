@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<sdf version="1.7">
+  <world name="empty_world">
+    <!-- The Sun -->
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/Sun</uri>
+    </include>
+
+    <!-- Empty ground -->
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/Ground Plane</uri>
+    </include>
+
+  </world>
+</sdf>

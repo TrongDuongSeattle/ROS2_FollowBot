@@ -30,6 +30,10 @@ add_executable(imu_serial_node src/imu_serial_node.cpp)
 target_link_libraries(imu_serial_node madgwick_filter PkgConfig::LibSerial)
 ament_target_dependencies(imu_serial_node rclcpp sensor_msgs LibSerial) 
 
+add_executable(encoder_serial_node src/encoder_serial_node.cpp)
+target_link_libraries(encoder_serial_node PkgConfig::LibSerial)
+ament_target_dependencies(encoder_serial_node rclcpp nav_msgs LibSerial)
+
 add_executable(arduino_serial_node src/arduino_serial_node.cpp)
 target_link_libraries(arduino_serial_node serial)
 ament_target_dependencies(arduino_serial_node rclcpp std_msgs)

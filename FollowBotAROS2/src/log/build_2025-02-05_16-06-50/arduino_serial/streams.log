@@ -1,0 +1,40 @@
+[0.018s] Invoking command in '/home/mlf_hntr/Projects/ROS2_FollowBot/FollowBotAROS2/src/build/arduino_serial': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/mlf_hntr/Projects/ROS2_FollowBot/FollowBotAROS2/src/arduino_serial -DCMAKE_INSTALL_PREFIX=/home/mlf_hntr/Projects/ROS2_FollowBot/FollowBotAROS2/src/install/arduino_serial
+[0.241s] -- The C compiler identification is GNU 13.3.0
+[0.428s] -- The CXX compiler identification is GNU 13.3.0
+[0.458s] -- Detecting C compiler ABI info
+[0.640s] -- Detecting C compiler ABI info - done
+[0.655s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.663s] -- Detecting C compile features
+[0.664s] -- Detecting C compile features - done
+[0.680s] -- Detecting CXX compiler ABI info
+[0.871s] -- Detecting CXX compiler ABI info - done
+[0.885s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.885s] -- Detecting CXX compile features
+[0.886s] -- Detecting CXX compile features - done
+[0.898s] -- Found ament_cmake: 2.5.3 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[1.154s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[1.361s] -- Found rclcpp: 28.1.6 (/opt/ros/jazzy/share/rclcpp/cmake)
+[1.423s] -- Found rosidl_generator_c: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[1.446s] -- Found rosidl_generator_cpp: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[1.473s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.506s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.630s] -- Found rmw_implementation_cmake: 7.3.1 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[1.634s] -- Found rmw_fastrtps_cpp: 8.4.1 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[1.773s] -- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.13")  
+[1.801s] -- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+[1.836s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.945s] -- Found std_msgs: 5.3.5 (/opt/ros/jazzy/share/std_msgs/cmake)
+[2.113s] -- Configuring done (2.1s)
+[2.138s] -- Generating done (0.0s)
+[2.145s] -- Build files have been written to: /home/mlf_hntr/Projects/ROS2_FollowBot/FollowBotAROS2/src/build/arduino_serial
+[2.165s] Invoked command in '/home/mlf_hntr/Projects/ROS2_FollowBot/FollowBotAROS2/src/build/arduino_serial' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/mlf_hntr/Projects/ROS2_FollowBot/FollowBotAROS2/src/arduino_serial -DCMAKE_INSTALL_PREFIX=/home/mlf_hntr/Projects/ROS2_FollowBot/FollowBotAROS2/src/install/arduino_serial
+[2.166s] Invoking command in '/home/mlf_hntr/Projects/ROS2_FollowBot/FollowBotAROS2/src/build/arduino_serial': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/mlf_hntr/Projects/ROS2_FollowBot/FollowBotAROS2/src/build/arduino_serial -- -j4 -l4
+[2.250s] [ 50%] [32mBuilding CXX object CMakeFiles/arduino_serial_node.dir/src/arduino_serial_node.cpp.o[0m
+[2.753s] [01m[K/home/mlf_hntr/Projects/ROS2_FollowBot/FollowBotAROS2/src/arduino_serial/src/arduino_serial_node.cpp:2:10:[m[K [01;31m[Kfatal error: [m[Klibserial/SerialPort.h: No such file or directory
+[2.753s]     2 | #include [01;31m[K<libserial/SerialPort.h>[m[K
+[2.753s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[2.753s] compilation terminated.
+[2.757s] gmake[2]: *** [CMakeFiles/arduino_serial_node.dir/build.make:76: CMakeFiles/arduino_serial_node.dir/src/arduino_serial_node.cpp.o] Error 1
+[2.757s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/arduino_serial_node.dir/all] Error 2
+[2.758s] gmake: *** [Makefile:146: all] Error 2
+[2.761s] Invoked command in '/home/mlf_hntr/Projects/ROS2_FollowBot/FollowBotAROS2/src/build/arduino_serial' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/mlf_hntr/Projects/ROS2_FollowBot/FollowBotAROS2/src/build/arduino_serial -- -j4 -l4

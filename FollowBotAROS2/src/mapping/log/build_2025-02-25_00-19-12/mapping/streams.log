@@ -1,0 +1,78 @@
+[0.014s] Invoking command in '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/mapping/build/mapping': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/mapping -DCMAKE_INSTALL_PREFIX=/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/mapping/install/mapping
+[0.128s] -- The C compiler identification is GNU 13.3.0
+[0.225s] -- The CXX compiler identification is GNU 13.3.0
+[0.254s] -- Detecting C compiler ABI info
+[0.414s] -- Detecting C compiler ABI info - done
+[0.430s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.430s] -- Detecting C compile features
+[0.431s] -- Detecting C compile features - done
+[0.444s] -- Detecting CXX compiler ABI info
+[0.619s] -- Detecting CXX compiler ABI info - done
+[0.635s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.635s] -- Detecting CXX compile features
+[0.636s] -- Detecting CXX compile features - done
+[0.650s] -- Found ament_cmake: 2.5.3 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.881s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[1.084s] -- Found rclcpp: 28.1.6 (/opt/ros/jazzy/share/rclcpp/cmake)
+[1.163s] -- Found rosidl_generator_c: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[1.190s] -- Found rosidl_generator_cpp: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[1.222s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.255s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.385s] -- Found rmw_implementation_cmake: 7.3.1 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[1.391s] -- Found rmw_fastrtps_cpp: 8.4.1 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[1.548s] -- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.13")  
+[1.578s] -- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+[1.613s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.740s] -- Found sensor_msgs: 5.3.5 (/opt/ros/jazzy/share/sensor_msgs/cmake)
+[1.825s] -- Found nav_msgs: 5.3.5 (/opt/ros/jazzy/share/nav_msgs/cmake)
+[1.870s] -- Found tf2: 0.36.8 (/opt/ros/jazzy/share/tf2/cmake)
+[1.882s] -- Found tf2_ros: 0.36.8 (/opt/ros/jazzy/share/tf2_ros/cmake)
+[2.085s] -- Found ament_lint_auto: 0.17.1 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+[2.284s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[2.284s] -- Configured cppcheck include dirs: 
+[2.284s] -- Configured cppcheck exclude dirs and/or files: 
+[2.286s] -- Added test 'flake8' to check Python code syntax and style conventions
+[2.286s] -- Configured 'flake8' exclude dirs and/or files: 
+[2.288s] -- Added test 'lint_cmake' to check CMake code style
+[2.290s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[2.298s] -- Added test 'uncrustify' to check C / C++ code style
+[2.298s] -- Configured uncrustify additional arguments: 
+[2.299s] -- Added test 'xmllint' to check XML markup files
+[2.302s] -- Configuring done (2.3s)
+[2.329s] -- Generating done (0.0s)
+[2.339s] -- Build files have been written to: /home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/mapping/build/mapping
+[2.358s] Invoked command in '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/mapping/build/mapping' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/mapping -DCMAKE_INSTALL_PREFIX=/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/mapping/install/mapping
+[2.360s] Invoking command in '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/mapping/build/mapping': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/mapping/build/mapping -- -j4 -l4
+[2.456s] [ 50%] [32mBuilding CXX object CMakeFiles/mapping_node.dir/followbot_nodes/mapping_node.cpp.o[0m
+[2.457s] [ 50%] [32mBuilding CXX object CMakeFiles/odometry_node.dir/followbot_nodes/odometry_node.cpp.o[0m
+[14.685s] [ 75%] [32m[1mLinking CXX executable mapping_node[0m
+[15.462s] [ 75%] Built target mapping_node
+[15.719s] [100%] [32m[1mLinking CXX executable odometry_node[0m
+[16.529s] [100%] Built target odometry_node
+[16.551s] Invoked command in '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/mapping/build/mapping' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/mapping/build/mapping -- -j4 -l4
+[16.570s] Invoking command in '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/mapping/build/mapping': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/mapping/build/mapping
+[16.585s] -- Install configuration: ""
+[16.585s] -- Installing: /home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/mapping/install/mapping/lib/mapping/odometry_node
+[16.594s] -- Set non-toolchain portion of runtime path of "/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/mapping/install/mapping/lib/mapping/odometry_node" to ""
+[16.594s] -- Installing: /home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/mapping/install/mapping/lib/mapping/mapping_node
+[16.602s] -- Set non-toolchain portion of runtime path of "/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/mapping/install/mapping/lib/mapping/mapping_node" to ""
+[16.602s] -- Installing: /home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/mapping/install/mapping/share/mapping/config
+[16.602s] -- Installing: /home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/mapping/install/mapping/share/mapping/config/mapper_params_online_async.yaml
+[16.602s] -- Installing: /home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/mapping/install/mapping/share/mapping/launch
+[16.602s] -- Installing: /home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/mapping/install/mapping/share/mapping/launch/followbot_launch.py
+[16.603s] -- Installing: /home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/mapping/install/mapping/share/ament_index/resource_index/package_run_dependencies/mapping
+[16.603s] -- Installing: /home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/mapping/install/mapping/share/ament_index/resource_index/parent_prefix_path/mapping
+[16.603s] -- Installing: /home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/mapping/install/mapping/share/mapping/environment/ament_prefix_path.sh
+[16.603s] -- Installing: /home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/mapping/install/mapping/share/mapping/environment/ament_prefix_path.dsv
+[16.603s] -- Installing: /home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/mapping/install/mapping/share/mapping/environment/path.sh
+[16.604s] -- Installing: /home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/mapping/install/mapping/share/mapping/environment/path.dsv
+[16.604s] -- Installing: /home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/mapping/install/mapping/share/mapping/local_setup.bash
+[16.604s] -- Installing: /home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/mapping/install/mapping/share/mapping/local_setup.sh
+[16.604s] -- Installing: /home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/mapping/install/mapping/share/mapping/local_setup.zsh
+[16.604s] -- Installing: /home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/mapping/install/mapping/share/mapping/local_setup.dsv
+[16.604s] -- Installing: /home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/mapping/install/mapping/share/mapping/package.dsv
+[16.605s] -- Installing: /home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/mapping/install/mapping/share/ament_index/resource_index/packages/mapping
+[16.605s] -- Installing: /home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/mapping/install/mapping/share/mapping/cmake/mappingConfig.cmake
+[16.605s] -- Installing: /home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/mapping/install/mapping/share/mapping/cmake/mappingConfig-version.cmake
+[16.605s] -- Installing: /home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/mapping/install/mapping/share/mapping/package.xml
+[16.608s] Invoked command in '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/mapping/build/mapping' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/mapping/build/mapping

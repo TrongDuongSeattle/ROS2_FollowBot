@@ -1,0 +1,179 @@
+[0.285s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--symlink-install']
+[0.285s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=True, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=4, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0xffff92f87e30>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0xffff93168410>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0xffff93168410>>, mixin_verb=('build',))
+[0.363s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.364s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.364s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.364s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.364s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.364s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.364s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src'
+[0.364s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.364s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.364s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.364s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.364s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.364s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.364s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.364s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.364s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.402s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.403s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.403s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.403s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.403s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.403s] Level 1:colcon.colcon_core.package_identification:_identify(arduino_serial) by extensions ['ignore', 'ignore_ament_install']
+[0.403s] Level 1:colcon.colcon_core.package_identification:_identify(arduino_serial) by extension 'ignore'
+[0.403s] Level 1:colcon.colcon_core.package_identification:_identify(arduino_serial) by extension 'ignore_ament_install'
+[0.403s] Level 1:colcon.colcon_core.package_identification:_identify(arduino_serial) by extensions ['colcon_pkg']
+[0.403s] Level 1:colcon.colcon_core.package_identification:_identify(arduino_serial) by extension 'colcon_pkg'
+[0.403s] Level 1:colcon.colcon_core.package_identification:_identify(arduino_serial) by extensions ['colcon_meta']
+[0.403s] Level 1:colcon.colcon_core.package_identification:_identify(arduino_serial) by extension 'colcon_meta'
+[0.403s] Level 1:colcon.colcon_core.package_identification:_identify(arduino_serial) by extensions ['ros']
+[0.403s] Level 1:colcon.colcon_core.package_identification:_identify(arduino_serial) by extension 'ros'
+[0.407s] DEBUG:colcon.colcon_core.package_identification:Package 'arduino_serial' with type 'ros.ament_cmake' and name 'arduino_serial'
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.408s] Level 1:colcon.colcon_core.package_identification:_identify(mapping) by extensions ['ignore', 'ignore_ament_install']
+[0.409s] Level 1:colcon.colcon_core.package_identification:_identify(mapping) by extension 'ignore'
+[0.409s] Level 1:colcon.colcon_core.package_identification:_identify(mapping) by extension 'ignore_ament_install'
+[0.409s] Level 1:colcon.colcon_core.package_identification:_identify(mapping) by extensions ['colcon_pkg']
+[0.409s] Level 1:colcon.colcon_core.package_identification:_identify(mapping) by extension 'colcon_pkg'
+[0.409s] Level 1:colcon.colcon_core.package_identification:_identify(mapping) by extensions ['colcon_meta']
+[0.409s] Level 1:colcon.colcon_core.package_identification:_identify(mapping) by extension 'colcon_meta'
+[0.409s] Level 1:colcon.colcon_core.package_identification:_identify(mapping) by extensions ['ros']
+[0.409s] Level 1:colcon.colcon_core.package_identification:_identify(mapping) by extension 'ros'
+[0.410s] DEBUG:colcon.colcon_core.package_identification:Package 'mapping' with type 'ros.ament_cmake' and name 'mapping'
+[0.410s] Level 1:colcon.colcon_core.package_identification:_identify(my_package) by extensions ['ignore', 'ignore_ament_install']
+[0.410s] Level 1:colcon.colcon_core.package_identification:_identify(my_package) by extension 'ignore'
+[0.410s] Level 1:colcon.colcon_core.package_identification:_identify(my_package) by extension 'ignore_ament_install'
+[0.410s] Level 1:colcon.colcon_core.package_identification:_identify(my_package) by extensions ['colcon_pkg']
+[0.410s] Level 1:colcon.colcon_core.package_identification:_identify(my_package) by extension 'colcon_pkg'
+[0.410s] Level 1:colcon.colcon_core.package_identification:_identify(my_package) by extensions ['colcon_meta']
+[0.410s] Level 1:colcon.colcon_core.package_identification:_identify(my_package) by extension 'colcon_meta'
+[0.410s] Level 1:colcon.colcon_core.package_identification:_identify(my_package) by extensions ['ros']
+[0.410s] Level 1:colcon.colcon_core.package_identification:_identify(my_package) by extension 'ros'
+[0.411s] DEBUG:colcon.colcon_core.package_identification:Package 'my_package' with type 'ros.ament_python' and name 'my_package'
+[0.411s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.411s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.411s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.411s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.411s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.440s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.440s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.446s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 438 installed packages in /opt/ros/jazzy
+[0.449s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.533s] Level 5:colcon.colcon_core.verb:set package 'arduino_serial' build argument 'cmake_args' from command line to 'None'
+[0.533s] Level 5:colcon.colcon_core.verb:set package 'arduino_serial' build argument 'cmake_target' from command line to 'None'
+[0.533s] Level 5:colcon.colcon_core.verb:set package 'arduino_serial' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.533s] Level 5:colcon.colcon_core.verb:set package 'arduino_serial' build argument 'cmake_clean_cache' from command line to 'False'
+[0.533s] Level 5:colcon.colcon_core.verb:set package 'arduino_serial' build argument 'cmake_clean_first' from command line to 'False'
+[0.533s] Level 5:colcon.colcon_core.verb:set package 'arduino_serial' build argument 'cmake_force_configure' from command line to 'False'
+[0.533s] Level 5:colcon.colcon_core.verb:set package 'arduino_serial' build argument 'ament_cmake_args' from command line to 'None'
+[0.533s] Level 5:colcon.colcon_core.verb:set package 'arduino_serial' build argument 'catkin_cmake_args' from command line to 'None'
+[0.533s] Level 5:colcon.colcon_core.verb:set package 'arduino_serial' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.533s] DEBUG:colcon.colcon_core.verb:Building package 'arduino_serial' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/build/arduino_serial', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/arduino_serial', 'merge_install': False, 'path': '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/arduino_serial', 'symlink_install': True, 'test_result_base': None}
+[0.533s] Level 5:colcon.colcon_core.verb:set package 'mapping' build argument 'cmake_args' from command line to 'None'
+[0.534s] Level 5:colcon.colcon_core.verb:set package 'mapping' build argument 'cmake_target' from command line to 'None'
+[0.534s] Level 5:colcon.colcon_core.verb:set package 'mapping' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.534s] Level 5:colcon.colcon_core.verb:set package 'mapping' build argument 'cmake_clean_cache' from command line to 'False'
+[0.534s] Level 5:colcon.colcon_core.verb:set package 'mapping' build argument 'cmake_clean_first' from command line to 'False'
+[0.534s] Level 5:colcon.colcon_core.verb:set package 'mapping' build argument 'cmake_force_configure' from command line to 'False'
+[0.534s] Level 5:colcon.colcon_core.verb:set package 'mapping' build argument 'ament_cmake_args' from command line to 'None'
+[0.534s] Level 5:colcon.colcon_core.verb:set package 'mapping' build argument 'catkin_cmake_args' from command line to 'None'
+[0.534s] Level 5:colcon.colcon_core.verb:set package 'mapping' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.534s] DEBUG:colcon.colcon_core.verb:Building package 'mapping' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/build/mapping', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/mapping', 'merge_install': False, 'path': '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/mapping', 'symlink_install': True, 'test_result_base': None}
+[0.534s] Level 5:colcon.colcon_core.verb:set package 'my_package' build argument 'cmake_args' from command line to 'None'
+[0.534s] Level 5:colcon.colcon_core.verb:set package 'my_package' build argument 'cmake_target' from command line to 'None'
+[0.534s] Level 5:colcon.colcon_core.verb:set package 'my_package' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.534s] Level 5:colcon.colcon_core.verb:set package 'my_package' build argument 'cmake_clean_cache' from command line to 'False'
+[0.534s] Level 5:colcon.colcon_core.verb:set package 'my_package' build argument 'cmake_clean_first' from command line to 'False'
+[0.534s] Level 5:colcon.colcon_core.verb:set package 'my_package' build argument 'cmake_force_configure' from command line to 'False'
+[0.534s] Level 5:colcon.colcon_core.verb:set package 'my_package' build argument 'ament_cmake_args' from command line to 'None'
+[0.534s] Level 5:colcon.colcon_core.verb:set package 'my_package' build argument 'catkin_cmake_args' from command line to 'None'
+[0.534s] Level 5:colcon.colcon_core.verb:set package 'my_package' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.534s] DEBUG:colcon.colcon_core.verb:Building package 'my_package' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/build/my_package', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/my_package', 'merge_install': False, 'path': '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/my_package', 'symlink_install': True, 'test_result_base': None}
+[0.534s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.536s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.536s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/arduino_serial' with build type 'ament_cmake'
+[0.536s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/arduino_serial'
+[0.541s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.541s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.541s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.546s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/mapping' with build type 'ament_cmake'
+[0.547s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/mapping'
+[0.547s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.547s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.552s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/my_package' with build type 'ament_python'
+[0.552s] Level 1:colcon.colcon_core.shell:create_environment_hook('my_package', 'ament_prefix_path')
+[0.553s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/my_package/share/my_package/hook/ament_prefix_path.ps1'
+[0.554s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/my_package/share/my_package/hook/ament_prefix_path.dsv'
+[0.555s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/my_package/share/my_package/hook/ament_prefix_path.sh'
+[0.556s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.556s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.568s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/build/arduino_serial': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/arduino_serial -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/arduino_serial
+[0.573s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/build/mapping': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/mapping -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/mapping
+[0.899s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/my_package'
+[0.899s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.899s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.905s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/build/arduino_serial' returned '1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/arduino_serial -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/arduino_serial
+[0.912s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(arduino_serial)
+[0.917s] Level 1:colcon.colcon_core.environment:checking '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/arduino_serial' for CMake module files
+[0.919s] Level 1:colcon.colcon_core.environment:checking '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/arduino_serial' for CMake config files
+[0.920s] Level 1:colcon.colcon_core.shell:create_environment_hook('arduino_serial', 'cmake_prefix_path')
+[0.920s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/arduino_serial/share/arduino_serial/hook/cmake_prefix_path.ps1'
+[0.921s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/arduino_serial/share/arduino_serial/hook/cmake_prefix_path.dsv'
+[0.922s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/arduino_serial/share/arduino_serial/hook/cmake_prefix_path.sh'
+[0.923s] Level 1:colcon.colcon_core.environment:checking '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/arduino_serial/lib'
+[0.923s] Level 1:colcon.colcon_core.environment:checking '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/arduino_serial/bin'
+[0.923s] Level 1:colcon.colcon_core.environment:checking '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/arduino_serial/lib/pkgconfig/arduino_serial.pc'
+[0.923s] Level 1:colcon.colcon_core.environment:checking '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/arduino_serial/lib/python3.12/site-packages'
+[0.924s] Level 1:colcon.colcon_core.environment:checking '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/arduino_serial/bin'
+[0.924s] INFO:colcon.colcon_core.shell:Creating package script '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/arduino_serial/share/arduino_serial/package.ps1'
+[0.925s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/arduino_serial/share/arduino_serial/package.dsv'
+[0.926s] INFO:colcon.colcon_core.shell:Creating package script '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/arduino_serial/share/arduino_serial/package.sh'
+[0.927s] INFO:colcon.colcon_core.shell:Creating package script '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/arduino_serial/share/arduino_serial/package.bash'
+[0.929s] INFO:colcon.colcon_core.shell:Creating package script '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/arduino_serial/share/arduino_serial/package.zsh'
+[0.929s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/arduino_serial/share/colcon-core/packages/arduino_serial)
+[0.931s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/build/mapping' returned '1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/mapping -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/mapping
+[0.932s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(mapping)
+[0.932s] Level 1:colcon.colcon_core.environment:checking '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/mapping' for CMake module files
+[0.933s] Level 1:colcon.colcon_core.environment:checking '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/mapping' for CMake config files
+[0.934s] Level 1:colcon.colcon_core.shell:create_environment_hook('mapping', 'cmake_prefix_path')
+[0.934s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/mapping/share/mapping/hook/cmake_prefix_path.ps1'
+[0.935s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/mapping/share/mapping/hook/cmake_prefix_path.dsv'
+[0.935s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/mapping/share/mapping/hook/cmake_prefix_path.sh'
+[0.936s] Level 1:colcon.colcon_core.environment:checking '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/mapping/bin'
+[0.936s] Level 1:colcon.colcon_core.environment:checking '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/mapping/lib/pkgconfig/mapping.pc'
+[0.936s] Level 1:colcon.colcon_core.environment:checking '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/mapping/lib/python3.12/site-packages'
+[0.937s] Level 1:colcon.colcon_core.environment:checking '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/mapping/bin'
+[0.937s] INFO:colcon.colcon_core.shell:Creating package script '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/mapping/share/mapping/package.ps1'
+[0.938s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/mapping/share/mapping/package.dsv'
+[0.938s] INFO:colcon.colcon_core.shell:Creating package script '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/mapping/share/mapping/package.sh'
+[0.939s] INFO:colcon.colcon_core.shell:Creating package script '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/mapping/share/mapping/package.bash'
+[0.939s] INFO:colcon.colcon_core.shell:Creating package script '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/mapping/share/mapping/package.zsh'
+[0.940s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/mapping/share/colcon-core/packages/mapping)
+[0.951s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[0.951s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[0.951s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '1'
+[0.951s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[0.962s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[0.962s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[0.962s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[0.991s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[0.992s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/local_setup.ps1'
+[0.993s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/_local_setup_util_ps1.py'
+[0.995s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/setup.ps1'
+[1.003s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/local_setup.sh'
+[1.004s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/_local_setup_util_sh.py'
+[1.006s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/setup.sh'
+[1.008s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/local_setup.bash'
+[1.009s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/setup.bash'
+[1.011s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/local_setup.zsh'
+[1.012s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/mlf_hntr/fb_ws/ROS2_FollowBot/FollowBotAROS2/src/install/setup.zsh'

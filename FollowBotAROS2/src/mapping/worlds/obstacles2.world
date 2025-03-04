@@ -1,0 +1,62 @@
+<sdf version="1.7">
+  <world name="obstacle_world">
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/openrobotics/worlds/Empty</uri>
+    </include>
+
+    <!-- Ground Plane -->
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/Ground Plane</uri>
+    </include>
+
+    <!-- Add a simple box obstacle -->
+    <model name="box_obstacle">
+      <static>true</static>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>1 1 1</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.8 0.1 0.1 1</ambient>
+          </material>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>1 1 1</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+      <pose>0 0 0.5 0 0 0</pose>
+    </model>
+
+    <!-- Add a cylinder obstacle -->
+    <model name="cylinder_obstacle">
+      <static>true</static>
+      <link name="link">
+        <visual name="visual">
+          <geometry>
+            <cylinder>
+              <radius>0.5</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <cylinder>
+              <radius>0.5</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+        </collision>
+      </link>
+      <pose>2 2 0.5 0 0 0</pose>
+    </model>
+
+  </world>
+</sdf>
