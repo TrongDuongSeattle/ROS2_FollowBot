@@ -15,7 +15,7 @@ class OdometryPublisher : public rclcpp::Node {
 	OdometryPublisher() 
 		: Node("followbot_odom"), 
 		x_(0.0), y_(0.0), theta_(0.0), 
-		linear_velocity(0.0), angular_velocity_(0.0) 
+		linear_velocity_(0.0), angular_velocity_(0.0) 
 	{
 		odom_publisher_ = this->create_publisher<nav_msgs::msg::Odometry>("odom", 10);
 		
@@ -24,7 +24,7 @@ class OdometryPublisher : public rclcpp::Node {
 			std::bind(&OdometryPublisher::imu_callback, this, std::placeholders::_1)
 		);
 
-		encoder_subscriber_ = this->create_subscription<>(
+		encoder_subscriber_ = this->create_subscription<nav_msgs::msg::Odometry>(
 			"encoder/data", 10,
 			std::bind(&OdometryPublisher::encoder_callback, this, std::placeholders::_1)	
 		);
@@ -40,7 +40,7 @@ class OdometryPublisher : public rclcpp::Node {
 		
 		prev_time_ = this->get_clock()->now();
 
-		RCLCPP_INFO(this->get_logger, "Odometry Node initialized.");
+		RCLCPP_INFO(this->get_logger(), "Odometry Node initialized.");
 	}
 
  private:
@@ -58,9 +58,9 @@ class OdometryPublisher : public rclcpp::Node {
 		double deltaTime = (current_time - prev_time_).seconds();
 		prev_time_ = current_time;
 
-		theta_ += angular_velocity_ * dt;
-		x_ += linear_velocity_ * dt * cos(theta_);
-		y_ += linear_velocity_ * dt * sin(theta_);
+		theta_ += angular_velocity_ * deltaTime;
+		x_ += linear_velocity_ * deltaTime * cos(theta_);
+		y_ += linear_velocity_ * deltaTime * sin(theta_);
 
 		auto odom_msg = nav_msgs::msg::Odometry();
 		odom_msg.header.stamp = this->get_clock()->now();
@@ -74,7 +74,7 @@ class OdometryPublisher : public rclcpp::Node {
 		odom_msg.twist.twist.linear.x = linear_velocity_;
 		odom_msg.twist.twist.angular.z = angular_velocity_;
 
-		odom_publisher_->publish(message);
+		odom_publisher_->publish(odom_msg);
 
 		// broadcast transform from odom to base_link
 		geometry_msgs::msg::TransformStamped t;
@@ -84,13 +84,14 @@ class OdometryPublisher : public rclcpp::Node {
 		t.transform.translation.x = x_;
 		t.transform.translation.y = y_;
 		t.transform.translation.z = 0.0;
-		t.transform.rotation = oreintation_;
+		t.transform.rotation = orientation_;
 
 		tf_broadcaster_->sendTransform(t);
 	}
 
 	rclcpp::Publisher<nav_msgs::msg::Odometry>::SharedPtr odom_publisher_;
 	rclcpp::Subscription<sensor_msgs::msg::Imu>::SharedPtr imu_subscriber_;
+	rclcpp::Subscription<nav_msgs::msg::Odometry>::SharedPtr encoder_subscriber_;
 	rclcpp::TimerBase::SharedPtr timer_;
 	std::shared_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
 

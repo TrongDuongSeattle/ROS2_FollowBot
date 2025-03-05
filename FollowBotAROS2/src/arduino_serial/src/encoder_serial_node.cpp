@@ -15,8 +15,8 @@ class EncoderSerialNode : public rclcpp::Node {
 		odom_publisher_ = this->create_publisher<nav_msgs::msg::Odometry>("encoder/data", 10);
 
 		timer_ = this->create_wall_timer(
-			std::chrono::milliseconds(50);
-			std::bind(&EncoderSerialNode::readEncoderData, this);		
+			std::chrono::milliseconds(50),
+			std::bind(&EncoderSerialNode::readEncoderData, this)		
 		);
 
 		prev_time_ = this->get_clock()->now();
@@ -38,15 +38,15 @@ class EncoderSerialNode : public rclcpp::Node {
 
 				rclcpp::Time current_time = this->get_clock()->now();
 				double dt = (current_time - prev_time_).seconds();
-				prev_time_ = current_time_;
+				prev_time_ = current_time;
 
 				double left_ticks = json_msg["data"]["left_wheel_ticks"];
 				double right_ticks = json_msg["data"]["right_wheel_ticks"];
 				double wheel_radius = json_msg["data"]["wheel_radius"];
 				double wheel_base = json_msg["data"]["wheel_base"];
 
-				double left_velocity = (left_wheel_ticks * wheel_radius) / dt;
-				double right_velocity = (right_wheel_ticks * wheel_radius) / dt;
+				double left_velocity = (left_ticks * wheel_radius) / dt;
+				double right_velocity = (right_ticks * wheel_radius) / dt;
 				
 				double linear_velocity = (left_velocity + right_velocity) / 2.0;
 				double angular_velocity = (right_velocity - left_velocity) / wheel_base;

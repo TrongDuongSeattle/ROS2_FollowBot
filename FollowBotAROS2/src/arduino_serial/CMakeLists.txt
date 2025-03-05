@@ -15,6 +15,7 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(nav_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(LibSerial REQUIRED IMPORTED_TARGET libserial)
@@ -41,5 +42,15 @@ ament_target_dependencies(arduino_serial_node rclcpp std_msgs)
 install(TARGETS
 	arduino_serial_node
 	DESTINATION lib/${PROJECT_NAME})
+
+install(TARGETS
+  imu_serial_node
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+install(TARGETS
+  encoder_serial_node
+  DESTINATION lib/${PROJECT_NAME}
+)
 
 ament_package()

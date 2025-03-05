@@ -10,7 +10,7 @@ class IMUSerialNode : public rclcpp::Node {
  public:
 	 IMUSerialNode() : Node("imu_serial_node"), madgwick_filter() {
 		serial_port_.Open("/dev/ttyACM0");
-		serial_port_.SetBaudRate(LibSerial::BaudRate::BAUD_115200);
+		serial_port_.SetBaudRate(LibSerial::BaudRate::BAUD_9600);
 
 		if (serial_port_.IsOpen()) 
 			RCLCPP_INFO(this->get_logger(), "Serial connection established.");
@@ -29,7 +29,13 @@ class IMUSerialNode : public rclcpp::Node {
 		if (serial_port_.IsDataAvailable()) {
 			serial_port_.ReadLine(data);
 			RCLCPP_INFO(this->get_logger(), "Received: %s", data.c_str());
-			
+
+			if (data.empty() || data.front() != '{') {
+				RCLCPP_WARN(this->get_logger(), 
+					"Ignoring non-JSON message: %s", data.c_str());
+				return;
+			}
+
 			try {
 				auto json_msg = nlohmann::json::parse(data);
 				if (json_msg["sensor_type"] != "imu") {

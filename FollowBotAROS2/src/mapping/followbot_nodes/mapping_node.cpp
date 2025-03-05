@@ -80,7 +80,7 @@ class LidarPreprocessor : public rclcpp::Node {
 		 t.transform.translation.z = 0.0;
 		 t.transform.rotation.w = 1.0;   // No rotation
 		 
-		 tf_broadcaster_->sendTransform(transformStamped);
+		 tf_broadcaster_->sendTransform(t);
 	 }
 
 	 rclcpp::Subscription<sensor_msgs::msg::LaserScan>::SharedPtr lidar_subscriber_;
