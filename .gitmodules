@@ -1,0 +1,3 @@
+[submodule "FollowBotAROS2/src/ldlidar_sl_ros2"]
+	path = FollowBotAROS2/src/ldlidar_sl_ros2
+	url = https://github.com/ldrobotSensorTeam/ldlidar_sl_ros2.git
