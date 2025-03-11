@@ -22,7 +22,7 @@ def generate_launch_description():
             name="ekf_filter_node_odom",
             output="screen"
             parameters=[rob_loc_params_file, {"use_sim_time": True}]
-            remappings=[()],
+            remappings=[("odometry/filtered", "odometry/local")],
         ),
         Node(
             package="robot_localization",

@@ -23,7 +23,7 @@ def generate_launch_description():
     )
 
     return LaunchDescription([
-        // # Arduino IMU Serial Node
+        # Arduino IMU Serial Node
         Node(
             package='arduino_serial',
             executable='imu_serial_node',

@@ -17,7 +17,7 @@ class GPSNavNode : public rclcpp::Node {
  public:
 	 GPSNavNode() : Node("gps_navigation_node") {
 		 gps_sub_ = this->create_subscription<sensor_msgs::msg::NavSatFix>(
-			"gps/fix", 10, 
+			"gps/data", 10, 
 			std::bind(&GPSNavNode::gps_callback, this, std::placeholders::1));
 
 		 goal_sub_ = this->create_subscription<sensor_msgs::msg::NavSatFix>(
@@ -66,7 +66,7 @@ class GPSNavNode : public rclcpp::Node {
 			"Updated Current Position: X = %.2f, Y = .%2f", current_x_, current_y_);
 	 }
 
-	 void goal_callback() {
+	 void goal_callback(const sensor_msg::msg::NavSatFix::SharedPtr msg) {
 		double goal_x, goal_y;
 		int zone;
 		bool northp;

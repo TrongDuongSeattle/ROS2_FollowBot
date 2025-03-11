@@ -13,8 +13,7 @@
 class OdometryPublisher : public rclcpp::Node {
  public:
 	OdometryPublisher() 
-		: Node("followbot_odom"), 
-		x_(0.0), y_(0.0), theta_(0.0), 
+		: Node("followbot_odom"), x_(0.0), y_(0.0), theta_(0.0), 
 		linear_velocity_(0.0), angular_velocity_(0.0) 
 	{
 		odom_publisher_ = this->create_publisher<nav_msgs::msg::Odometry>("odom", 10);
