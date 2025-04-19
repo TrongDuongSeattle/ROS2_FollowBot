@@ -14,7 +14,29 @@ Additionally, we will integrate the `slam-toolbox` and `nav2` packages. This wil
 ![image](https://github.com/user-attachments/assets/2fddc72b-3362-4b83-86e7-ba2ae07b1283)
 
 
-### Prerequisites
+### Current Development Updates:
+Over the past couple of months, we have been progressively working on mapping and following mechanics. We utilized SLAM and the SLAM Toolbox to project a map in RViz, a visualization software, enabling us to see our robot in a virtual environment. As of now, we have successfully established connections between our different frames. The image below demonstrates the aligned transformations necessary for our mapping to function effectively. Our setup includes the following frame hierarchy: **map → odom → base_link → base_layer**.
+
+<img src="Documentation/Images/rqt_tree.png" alt="Image description" width="500" />
+
+Another representation that provides a clearer understanding is the `rqt_graph`, which illustrates how all our nodes interact with various topics. This visualization highlights the communication flow between nodes and topics in the ROS environment, offering insights into the system's architecture and data exchange.
+
+![image](Documentation/Images/rqt_graph.png)
+
+In this graph, you can observe the nodes interacting with the topics. One of our essential nodes is the SLAM Toolbox, which plays a critical role in mapping. The image below showcases how the SLAM Toolbox updates and projects information to generate the map:
+
+![image](Documentation/Images/slam_toolbox_graph.png)
+
+### About SLAM Toolbox:
+The SLAM Toolbox is a robust package designed for 2D Simultaneous Localization and Mapping (SLAM) in ROS2. It offers features such as:
+- **Lifelong mapping**: Continuously refining and updating maps while removing extraneous information from new scans.
+- **Pose-graph optimization**: Ensuring accurate localization and mapping through advanced optimization techniques.
+- **Synchronous and asynchronous modes**: Allowing flexibility in processing sensor data.
+- **RViz integration**: Providing tools for visualizing and manipulating nodes and connections during mapping.
+
+These capabilities make the SLAM Toolbox an essential component for generating and maintaining accurate maps in dynamic environments.
+
+## Prerequisites
 * **Raspberry Pi**: Ensure you have a Raspberry Pi 4 or better with more than 4GB of RAM.
 * **ROS2**: You must be using the latest version of ROS2, which is Jazzy.
 * **Languages**: Developers can create packages in either C++ or Python.
