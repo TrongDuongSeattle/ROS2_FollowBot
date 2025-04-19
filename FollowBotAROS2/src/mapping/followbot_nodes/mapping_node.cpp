@@ -1,6 +1,13 @@
+/**
+ * This class was created purely for practice. 
+ * The functions of this class will be better achieved by: 
+ * ldlidar_sl_ros2 and slam_toolbox packages
+ */
+
+
 #include <rclcpp/rclcpp.hpp>
 #include <sensor_msgs/msg/laser_scan.hpp>
-// #include <nav_msgs/msg/occupancy_grid.hpp>
+#include <nav_msgs/msg/occupancy_grid.hpp> //
 #include <geometry_msgs/msg/transform_stamped.hpp>
 #include <tf2_ros/transform_broadcaster.h>
 
@@ -10,9 +17,9 @@
 class LidarPreprocessor : public rclcpp::Node {
  public:
 	 LidarPreprocessor() : Node("lidar_preprocessor") {
-		 /**
+		 //
 		 map_publisher_ = this->create_publisher<nav_msgs::msg::OccupancyGrid>("map", 10);
-		 */
+		 //
 		 
 		 lidar_subscriber_ = this->create_subscription<sensor_msgs::msg::LaserScan>(
 			"scan", 10, 
@@ -51,7 +58,7 @@ class LidarPreprocessor : public rclcpp::Node {
 				
 		 }
 
-		 /**
+		 //
 		 auto map_msg = nav_msgs::msg::OccupancyGrid();
 		 map_msg.header.stamp = this->get_clock()->now();
 		 map_msg.header.frame_id = "map";
@@ -63,12 +70,12 @@ class LidarPreprocessor : public rclcpp::Node {
 		 map_msg.data.resize(map_msg.info.width * map_msg.info.height, -1); // uknown space
 
 		 for (size_t i = 0; i < valid_ranges.size(); ++i) {
-			int cell index = i % (map_msg.info.width * map_msg.info.height);
+			int cell_index = i % (map_msg.info.width * map_msg.info.height);
 			map_msg.data[cell_index] = 0; // mark as free space
 		 }
 
 		 map_publisher_->publish(map_msg);
-		 */
+		 //
 
 		 // broadcast a static transform to help `slam_toolbox` associate incoming data
 		 geometry_msgs::msg::TransformStamped t;
@@ -84,7 +91,7 @@ class LidarPreprocessor : public rclcpp::Node {
 	 }
 
 	 rclcpp::Subscription<sensor_msgs::msg::LaserScan>::SharedPtr lidar_subscriber_;
-	 // rclcpp::Publisher<nav_msgs::msg::OccupancyGrid>::SharedPtr map_publisher_;
+	 rclcpp::Publisher<nav_msgs::msg::OccupancyGrid>::SharedPtr map_publisher_; //
 	 std::shared_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
 };
 

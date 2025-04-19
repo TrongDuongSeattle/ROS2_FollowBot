@@ -10,12 +10,26 @@ slam_toolbox:
     ceres_loss_function: None
 
     # ROS Parameters
+    ignore_scan_errors: true # We are ignoring scans since our lidar is 668 (We must fix later for now just ignore)
+    scan_queue_size: 10 # reduced from 100 to limit backlog
+
+    enable_interactive_mode: true
+    publish_pose_graph: true
+    max_iterations: 1000
+    max_iterations_loop: 1000
+    scan_buffer_size: 100
+
+    publish_tf: true # test add
     odom_frame: odom
     map_frame: map
-    base_frame: base_link #originally base_footprint
+    base_frame: base_link  # originally base_footprint, must match robot_localization's base_frame
     scan_topic: /scan
     use_map_saver: true
-    mode: mapping #localization
+    mode: mapping          #localization 
+
+    publish_map: true
+    queue_size: 1000
+    use_sim_time: false
 
     # if you'd like to immediately start continuing a map at a given pose
     # or at the dock, but they are mutually exclusive, if pose is given
@@ -25,15 +39,15 @@ slam_toolbox:
     #map_start_at_dock: true
 
     debug_logging: false
-    throttle_scans: 1
-    transform_publish_period: 0.02 #if 0 never publishes odometry
+    throttle_scans: 1 # process every scan (was 2)
+    transform_publish_period: 0.02 # if 0 never publishes odometry
     map_update_interval: 5.0
     resolution: 0.05
     max_laser_range: 8.0 #for rastering images #orginally 20.0
     minimum_time_interval: 0.5
-    transform_timeout: 0.2
-    tf_buffer_duration: 30.0
-    stack_size_to_use: 40000000 #// program needs a larger stack size to serialize large maps
+    transform_timeout: 0.1 # lowered from 0.2 to reduce queueing
+    tf_buffer_duration: 5.0 # lowered from 30.0 to avoid stale transforms
+    stack_size_to_use: 40000000 # program needs a larger stack size to serialize large maps
     enable_interactive_mode: true
 
     # General Parameters

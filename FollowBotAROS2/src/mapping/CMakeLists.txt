@@ -18,18 +18,18 @@ find_package(geometry_msgs REQUIRED)
 find_package(tf2 REQUIRED)
 find_package(tf2_ros REQUIRED)
 
-add_executable(odometry_node followbot_nodes/odometry_node.cpp)
-ament_target_dependencies(odometry_node rclcpp sensor_msgs nav_msgs geometry_msgs tf2_ros)
-
-add_executable(mapping_node followbot_nodes/mapping_node.cpp)
-ament_target_dependencies(mapping_node rclcpp sensor_msgs geometry_msgs tf2_ros)
-
-install(TARGETS
-	odometry_node
-	mapping_node
-	DESTINATION lib/${PROJECT_NAME}
-)
-
+#add_executable(odometry_node followbot_nodes/odometry_node.cpp)
+#ament_target_dependencies(odometry_node rclcpp sensor_msgs nav_msgs geometry_msgs tf2_ros)
+#
+#add_executable(mapping_node followbot_nodes/mapping_node.cpp)
+#ament_target_dependencies(mapping_node rclcpp sensor_msgs nav_msgs geometry_msgs tf2_ros)
+#
+#install(TARGETS
+#	odometry_node
+#	mapping_node
+#	DESTINATION lib/${PROJECT_NAME}
+#)
+#
 install(
 	DIRECTORY config/
 	DESTINATION share/${PROJECT_NAME}/config

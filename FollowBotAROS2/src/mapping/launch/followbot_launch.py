@@ -23,30 +23,6 @@ def generate_launch_description():
     )
 
     return LaunchDescription([
-        # Arduino IMU Serial Node
-        Node(
-            package='arduino_serial',
-            executable='imu_serial_node',
-            name='imu_serial_node',
-            output='screen'
-        ),
-
-        # LIDAR Preprocessor Node
-        Node(
-            package='mapping',
-            executable='mapping_node',
-            name='lidar_preprocessor_node',
-            output='screen'
-        ),
-
-        # custom Odometry Node
-        Node(
-            package='mapping',
-            executable='odometry_node',
-            name='odometry_node',
-            output='screen'
-        ),
-
         # SLAM Toolbox Launch
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(slam_toolbox_launch_path),
