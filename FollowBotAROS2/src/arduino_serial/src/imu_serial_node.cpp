@@ -29,7 +29,7 @@ class IMUSerialNode : public rclcpp::Node {
 	 void readIMUData() {
 		auto json_msg = SerialManager::get().popImu();
 		
-		if (!json_msg.has_value())
+		if (!json_msg)
 			return;
 
 		try {
