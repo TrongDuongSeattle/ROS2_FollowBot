@@ -94,6 +94,33 @@ Important command when exiting an environment:
 To exit an environment properly ALWAYS do ctrl + C
 ```
 
+<h1> Submodule Guide </h1>
+
+Our project relies on [LDROBOT LiDAR LD14P](https://github.com/ldrobotSensorTeam/ldlidar_sl_ros2/tree/d70802ac5d46e4e02c8318b2769f508f0f86172e) hardware driver provided by ShenZhen LDROBOT Co., LTD , Sensor team. This is embedded as a submodule via the following commands:
+```
+cd ~/fb_ws/ROS2_FollowBot/FollowBotAROS2/src
+git submodule add https://github.com/ldrobotSensorTeam/ldlidar_sl_ros2.git ldlidar_sl_ros2
+git add .gitmodules src/ldlidar_sl_ros2 # stage the submodule config and path
+
+git commit -m "add ldlidar_sl_ros2 submodule"
+git push
+```
+
+In order to update the submodule 
+```
+# updating submodules (if the main project’s submodule pointer changes):
+git pull  # pull main project changes
+git submodule update --recursive
+
+# pulling latest submodule changes (to update the submodule itself):
+cd src/ldlidar_sl_ros2
+git pull origin main  # or your branch
+cd ../..
+git add src/ldlidar_sl_ros2
+git commit -m "update submodule"
+```
+
+
 <h1> Windows GUI for Running the Pi </h1>
 VcXsrv is our chosen X server that allows you to run any graphical Linux application on Windows, including more complex simulations. This is especially useful for running RViz, which visualizes sensor data.
 
@@ -156,7 +183,7 @@ Once the parameters are adjusted to fit our setup, run `slam-toolbox` using the 
 ros2 launch slam_toolbox online_async_launch.py slam_params_file:=./Projects/ROS2_FollowBot/FollowBotAROS2/src/mapping/config/mapper_params_online_async.yaml
 ```
 
-In a seperate terminal, run Rviz to visualize the mapping process:
+(With a LiDAR sensor publishing to `/scan`) In a seperate terminal, run Rviz to visualize the mapping process:
 
 ```
 ros2 run rviz2 rviz2
@@ -167,13 +194,60 @@ In RViz, you should now see available topics such as:
 * `/scan` - Incoming LiDAR or depth camera data.
 * `/odom` - Odometry data from the bot’s sensors.
 
-Our next steps include:
-* Tweak `mapper_params_online_async.yaml` to fit our FollowBot's sensor setup and environment.
-* Create a custom ROS 2 launch file to automate the startup process instead of running commands manually.
-* Integrate `nav2` package as well. 
+<h1> robot_localization set-up </h1>
+Install with:
+
+```
+sudo apt-get update
+sudo apt-get install ros-jazzy-robot-localization
+```
+
+Key nodes:
+* `ekf_filter_node_odom` to provide local odometry via fusing IMU and encoder sensor data
+* `ekf_filter_node_map` to provide global odometry via fusing GPS data
+* and [navsat_transform_node](http://docs.ros.org/en/jade/api/robot_localization/html/navsat_transform_node.html) produces an odometry output with the position of the GPS in the map frame
+
+Key topics:
+| Topic                   | Message Type                   | Purpose                                      |
+|-------------------------|--------------------------------|----------------------------------------------|
+| `/wheel_odom`           | `nav_msgs/Odometry`            | Input wheel odometry data (remapped from `/odom`). |
+| `/imu/data`             | `sensor_msgs/Imu`              | Input IMU orientation and angular velocity. |
+| `/gps/fix`              | `sensor_msgs/NavSatFix`        | Input GPS global position data.             |
+| `/odometry/filtered`    | `nav_msgs/Odometry`            | Output fused odometry estimate (EKF result).|
+
+`./mapping/config/dual_ekf_navsat_params.yaml` will show all remappings of topics and what the package now expects from our configuration. Hopefully this graph helps visualize this package at work:
+
+![image](https://github.com/user-attachments/assets/51308c7b-d7ec-4a92-a3f2-73d32f0c1200)
+
+
+
+<h1> nav2 set-up </h1>
+Install with:
+
+```
+sudo apt-get update
+sudo apt-get install ros-jazzy-navigation2 ros-humble-nav2-bringup
+```
+Key nodes:
+* `controller_server`: generates velocity commands (/cmd_vel) to follow the path
+* `planner_server`: plans paths to goals (/goal_pose)
+* `bt_navigator`: executes navigation behavior trees
+* `amcl`: localization using Adaptive Monte Carlo Localization
+
+Key topics:
+| Topic               | Message Type                                | Purpose                                      |
+|---------------------|---------------------------------------------|----------------------------------------------|
+| `/cmd_vel`          | `geometry_msgs/Twist`                       | Output velocity commands to the robot base.  |
+| `/goal_pose`        | `geometry_msgs/PoseStamped`                 | Input goal pose for navigation.              |
+| `/amcl_pose`        | `geometry_msgs/PoseWithCovarianceStamped`   | Estimated robot pose from AMCL.              |
+| `/map`              | `nav_msgs/OccupancyGrid`                    | Static map for localization and planning.    |
 
 <h2>rqt_graph</h2>
-rqt graph will display the given information about the nodes and the topics that are currently being played with:
+rqt graph will display the given information about the nodes and the topics that are currently being played with via this command for ROS2:
+
+```
+ros2 run rqt_graph rqt_graph
+```
 
 ![image](./Images/rqt_graph.png)
 
