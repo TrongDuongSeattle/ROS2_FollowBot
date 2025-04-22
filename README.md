@@ -38,7 +38,8 @@ We can visualize how these nodes interact, as well as critical topics, via the `
 
 Used for [real-time 2D SLAM (Simultaneous Localization and Mapping)](https://github.com/SteveMacenski/slam_toolbox). It processes LiDAR scans and odometry to generate a static map (/map topic) and updates the robot’s pose (/amcl_pose).
 
-![image](Documentation/Images/slam_toolbox_graph.png)
+![image](https://github.com/user-attachments/assets/ed02447d-2ffe-40e7-ac1b-76c49a22898d)
+
 
 4. **`robot_localization` Integration**
 
