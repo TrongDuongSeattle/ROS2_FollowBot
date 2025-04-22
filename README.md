@@ -43,7 +43,7 @@ Used for [real-time 2D SLAM (Simultaneous Localization and Mapping)](https://git
 
 4. **`robot_localization` Integration**
 
-Fuses wheel odometry (/wheel_odom), IMU (/imu/data), and GPS (/gps/fix) into a unified odometry estimate (/odometry/filtered) using an Extended Kalman Filter (EKF).
+Fuses wheel odometry (/wheel_odom), orientation from the IMU (/imu/data), and GPS (/gps/fix) into a unified odometry estimate (/odometry/filtered) using an Extended Kalman Filter (EKF).
 
 ![image](https://github.com/user-attachments/assets/5310103e-d5f5-45f2-bfd1-8087139adab7)
 
