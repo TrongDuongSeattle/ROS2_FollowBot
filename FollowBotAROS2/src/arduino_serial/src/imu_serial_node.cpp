@@ -1,11 +1,13 @@
 #include <rclcpp/rclcpp.hpp>
 #include <sensor_msgs/msg/imu.hpp>
-#include <libserial/SerialPort.h>
 #include "imu_filter/MadgwickAHRS.h"
-#include <iostream>
-#include <sstream>
 #include <nlohmann/json.hpp>
 #include "serial_manager.hpp"
+
+#include <chrono>
+#include <functional> // for std::bind
+#include <memory>
+#include <string>
 
 class IMUSerialNode : public rclcpp::Node {
  public:
@@ -74,9 +76,11 @@ class IMUSerialNode : public rclcpp::Node {
 			imu_msg.linear_acceleration_covariance[8] = 0.1;
 
 			imu_publisher_->publish(imu_msg);
-			RCLCPP_INFO(this->get_logger(), "Successfully published IMU data to imu/data");
+			RCLCPP_INFO(this->get_logger(), 
+				"Successfully published IMU data to imu/data");
+
 		} catch (const std::exception& e) {
-			RCLCPP_ERROR(this->get_logger(), "JSON Parsing Error: %s", e.what());
+			RCLCPP_ERROR(this->get_logger(), "IMU error: %s", e.what());
 		}
 	 }
 

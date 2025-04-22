@@ -1,9 +1,13 @@
 #include <rclcpp/rclcpp.hpp>
 #include <nav_msgs/msg/odometry.hpp>
-#include <libserial/SerialPort.h>
 #include <nlohmann/json.hpp>
-#include <math.h>
 #include "serial_manager.hpp"
+
+#include <math.h>
+#include <chrono>
+#include <functional>
+#include <memory>
+#include <string>
 
 class EncoderSerialNode : public rclcpp::Node {
  public:
@@ -36,7 +40,7 @@ class EncoderSerialNode : public rclcpp::Node {
 	 void readEncoderData() {
 		auto json_msg = SerialManager::get().popEnc();
 
-		if (!json_msg.has_value())
+		if (!json_msg)
 			return;
 
 		try {
@@ -81,7 +85,7 @@ class EncoderSerialNode : public rclcpp::Node {
 			odom_publisher_->publish(odom_msg);
 			RCLCPP_INFO(this->get_logger(), "Successfully published data to wheel_odom");
 		} catch (const std::exception& e) {
-			RCLCPP_ERROR(this->get_logger(), "JSON Parsing Error: %s", e.what());
+			RCLCPP_ERROR(this->get_logger(), "Encoder error %s", e.what());
 		}
 	 }
 

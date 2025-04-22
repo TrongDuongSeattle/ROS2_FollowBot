@@ -54,6 +54,7 @@ class SerialManager {
 	 std::optional<nlohmann::json> popImu() { return pop_queue(imu_q_, imu_mutex_); }
 	 std::optional<nlohmann::json> popEnc() { return pop_queue(enc_q_, enc_mutex_); }
 	 std::optional<nlohmann::json> popGps() { return pop_queue(gps_q_, gps_mutex_); }
+	 std::optional<nlohmann::json> popGoal() { return pop_queue(goal_q_, goal_mutex_); }
 	 
 	 /**
 	 * destructor for SerialManager 
@@ -112,6 +113,11 @@ class SerialManager {
 				if (gps_q_.size() < MAX_QUEUE_SIZE) {
 					gps_q_.push(std::move(js));
 				}
+			} else if (sensor_type == "goal") {
+				std::lock_guard<std::mutex> lock(goal_mutex_);
+				if (goal_q_.size() < MAX_QUEUE_SIZE) {
+					gps_q_.push(std::move(js));
+				}
             } else {
                 RCLCPP_WARN(rclcpp::get_logger("serial_manager"),
                     "Unknown sensor type: %s", sensor_type.c_str());
@@ -121,7 +127,7 @@ class SerialManager {
             return true;
 
         } catch (const std::exception& e) {
-            RCLCPP_ERROR(rclcpp::get_logger("serial_manager"),
+            RCLCPP_WARN(rclcpp::get_logger("serial_manager"),
                 "JSON error: %s", e.what());
             return false;
         }
@@ -149,6 +155,6 @@ class SerialManager {
 	 std::mutex port_mutex_;
 
 	 // data queues
-	 std::queue<nlohmann::json> imu_q_, enc_q_, gps_q_;
-	 std::mutex imu_mutex_, enc_mutex_, gps_mutex_;
+	 std::queue<nlohmann::json> imu_q_, enc_q_, gps_q_, goal_q_;
+	 std::mutex imu_mutex_, enc_mutex_, gps_mutex_, goal_mutex_;
 };

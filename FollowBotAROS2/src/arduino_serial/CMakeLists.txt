@@ -14,11 +14,14 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(rclcpp_components REQUIRED)
-find_package(nav_msgs REQUIRED)     # for encoder
-find_package(sensor_msgs REQUIRED)  # for imu and gps
-find_package(PkgConfig REQUIRED)
+find_package(nav_msgs REQUIRED)      # for encoder/odom msg
+find_package(sensor_msgs REQUIRED)   # for imu and gps
+find_package(geometry_msgs REQUIRED) # for PoseStamped msgs
 find_package(nlohmann_json REQUIRED)
 
+find_package(PkgConfig REQUIRED)
+
+pkg_check_modules(GEOLIB REQUIRED geographiclib)
 pkg_check_modules(LibSerial REQUIRED IMPORTED_TARGET libserial)
 include_directories(${LibSerial_INCLUDE_DIRS})
 
@@ -92,6 +95,30 @@ rclcpp_components_register_node(
 	EXECUTABLE gps_serial_node_exec
 )
 
+# ======= goal component ======
+add_library(goal_serial_component SHARED src/goal_serial_node.cpp)
+target_link_libraries(goal_serial_component 
+	PkgConfig::LibSerial 
+	${GEOLIB_LIBRARIES})
+ament_target_dependencies(goal_serial_component
+	rclcpp
+	rclcpp_components
+	geometry_msgs
+	sensor_msgs
+	nlohmann_json
+)
+target_include_directories(goal_serial_component 
+	PUBLIC 
+	src/include
+	${GEOLIB_INCLUDE_DIRS}
+)
+
+rclcpp_components_register_node(
+	goal_serial_component
+	PLUGIN "GoalSerialNode"
+	EXECUTABLE goal_serial_node_exec
+)
+
 install(
 	TARGETS serial_manager_component
 			serial_manager_node_exec
@@ -101,6 +128,8 @@ install(
 			encoder_serial_node_exec	
 			gps_serial_component
 			gps_serial_node_exec
+			goal_serial_component
+			goal_serial_node_exec
 	ARCHIVE DESTINATION lib
 	LIBRARY DESTINATION lib
 	RUNTIME DESTINATION bin
@@ -116,6 +145,7 @@ ament_export_dependencies(
 	rclcpp_components
 	nav_msgs
 	sensor_msgs
+	geometry_msgs
 	nlohmann_json
 )
 ament_package()

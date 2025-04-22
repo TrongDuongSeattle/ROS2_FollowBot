@@ -1,9 +1,12 @@
 #include <rclcpp/rclcpp.hpp>
 #include <sensor_msgs/msg/nav_sat_fix.hpp>
-#include <libserial/SerialPort.h>
-#include <sstream>
 #include <nlohmann/json.hpp>
 #include "serial_manager.hpp"
+
+#include <chrono>
+#include <functional>
+#include <memory>
+#include <string>
 
 class GPSSerialNode : public rclcpp::Node {
  public:
@@ -25,14 +28,14 @@ class GPSSerialNode : public rclcpp::Node {
 	 void readGPSData() {
 		auto json_msg = SerialManager::get().popGps();
 
-		if (!json_msg.has_value())
+		if (!json_msg)
 			return;
 
 		try {
 			RCLCPP_INFO(this->get_logger(), "Processing GPS data");
 
 			auto& data = json_msg->at("data");
-			double latitude  = data["latitude"].get<double>();;
+			double latitude  = data["latitude"].get<double>();
 			double longitude = data["longitude"].get<double>();
 
 			sensor_msgs::msg::NavSatFix gps_msg;
@@ -47,10 +50,11 @@ class GPSSerialNode : public rclcpp::Node {
 				gps_msg.position_covariance[i] = 1.0;
 
 			gps_publisher_->publish(gps_msg);
-			RCLCPP_INFO(this->get_logger(), "Successfully published GPS data to `gps/fix`");
+			RCLCPP_INFO(this->get_logger(), 
+				"Successfully published GPS data to `gps/fix`");
 
 		} catch (const std::exception& e) {
-			RCLCPP_ERROR(this->get_logger(), "JSON Parsing Error: %s", e.what());
+			RCLCPP_ERROR(this->get_logger(), "GPS error: %s", e.what());
 		}
 	 }
 
