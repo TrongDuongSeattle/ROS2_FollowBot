@@ -1,4 +1,4 @@
-name: ROS2 Jazzu CI (with Container)
+name: ROS2 Jazzy CI (with Container)
 
 on:
   push:
@@ -36,4 +36,5 @@ jobs:
         run: |
           source /opt/ros/jazzy/setup.bash
           colcon build --symlink-install
+        shell: bash
         
