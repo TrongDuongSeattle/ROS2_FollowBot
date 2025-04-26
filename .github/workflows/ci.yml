@@ -21,6 +21,11 @@ jobs:
           required-ros-distributions: humble  # Adjust version accordingly
           use-ros2-testing: true # Enables testing repository for Jazzy
 
+      - name: Update and Upgrade Packages
+        run: |
+          sudo apt-get update -y
+          sudo apt-get upgrade -y
+    
       - name: Move to ROS2 workspace
         run: |
           cd FollowBotAROS2 # Navigate to the correct directory
