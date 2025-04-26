@@ -29,7 +29,9 @@ jobs:
 
       - name: Install dependencies
         run: |
-          sudo apt-get install -y libnlohmann-json-dev
+          sudo apt-get update -y
+          sudo apt-cache search nlohmann-json
+          sudo apt-get install -y nlohmann-json-dev
     
       - name: Move to ROS2 workspace
         run: |
