@@ -1,0 +1,28 @@
+name: ROS2 CI
+
+on:
+  push:
+    branches: 
+      - main  # Runs on every push to main
+  pull_request:
+    branches:
+      - main  # Runs on PRs to main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Setup ROS2 environment
+        uses: ros-tooling/setup-ros@v0.6.0
+        with:
+          required-ros-distributions: jazzy  # Adjust version accordingly
+
+      - name: Build and test
+        uses: ros-tooling/action-ros-ci@v0.2
+        with:
+          target-ros2-distro: jazzy
+          colcon-defaults: >-
+            {"build": {"cmake-args": ["-DCMAKE_BUILD_TYPE=Release"]}}
