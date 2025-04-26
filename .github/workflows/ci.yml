@@ -3,10 +3,10 @@ name: ROS2 Jazzy CI (with Container)
 on:
   push:
     branches: 
-      - main  # Runs on every push to main
+      - master  # Runs on every push to main
   pull_request:
     branches:
-      - main  # Runs on PRs to main
+      - master  # Runs on PRs to main
 
 jobs:
   build:
