@@ -1,0 +1,55 @@
+name: ROS2 Jazzy CI (with Container)
+
+on:
+  push:
+    branches: 
+      - master  # Runs on every push to main
+  pull_request:
+    branches:
+      - master  # Runs on PRs to main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: ubuntu:noble
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Setup ROS2 environment
+        uses: ros-tooling/setup-ros@v0.7
+        with:
+          required-ros-distributions: jazzy  # Adjust version accordingly
+
+      - name: Update and Upgrade Packages
+        run: |
+          sudo apt-get update -y
+          sudo apt-get upgrade -y
+
+      - name: Install nlohmann-json
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y nlohmann-json3-dev
+
+      - name: Install geographiclib
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y libgeographiclib-dev
+
+      - name: Install LibSerial
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y libserial-dev
+    
+      - name: Move to ROS2 workspace
+        run: |
+          cd FollowBotAROS2 # Navigate to the correct directory
+          ls -la
+
+      - name: Build your workspace
+        run: |
+          source /opt/ros/jazzy/setup.bash
+          colcon build --symlink-install
+        shell: bash
+        
