@@ -27,9 +27,13 @@ jobs:
           sudo apt-get update -y
           sudo apt-get upgrade -y
 
-      - name: Install dependencies
+      - name: Install nlohmann-json
         run: |
           sudo apt-get install -y nlohmann-json3-dev
+
+      - name: Install geographiclib
+        run: |
+          sudo apt-get install -y geographiclib-dev
     
       - name: Move to ROS2 workspace
         run: |
