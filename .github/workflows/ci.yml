@@ -36,6 +36,11 @@ jobs:
         run: |
           sudo apt-get update -y
           sudo apt-get install -y libgeographiclib-dev
+
+      - name: Install LibSerial
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y libserial-dev
     
       - name: Move to ROS2 workspace
         run: |
