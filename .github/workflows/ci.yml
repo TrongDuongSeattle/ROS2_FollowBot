@@ -26,6 +26,10 @@ jobs:
         run: |
           sudo apt-get update -y
           sudo apt-get upgrade -y
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get install -y libnlohmann-json-dev
     
       - name: Move to ROS2 workspace
         run: |
