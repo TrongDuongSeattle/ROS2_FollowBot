@@ -16,9 +16,10 @@ jobs:
         uses: actions/checkout@v3
       
       - name: Setup ROS2 environment
-        uses: ros-tooling/setup-ros@v0.6.0
+        uses: ros-tooling/setup-ros@v0.7
         with:
           required-ros-distributions: jazzy  # Adjust version accordingly
+          use-ros2-testing: true # Enables testing repository for Jazzy
 
       - name: Build and test
         uses: ros-tooling/action-ros-ci@v0.2
