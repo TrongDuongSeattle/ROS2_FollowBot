@@ -21,6 +21,11 @@ jobs:
           required-ros-distributions: jazzy  # Adjust version accordingly
           use-ros2-testing: true # Enables testing repository for Jazzy
 
+      - name: Move to ROS2 workspace
+        run: |
+          cd FollowBotAROS2 # Navigate to the correct directory
+          ls -la
+
       - name: Build and test
         uses: ros-tooling/action-ros-ci@v0.2
         with:
