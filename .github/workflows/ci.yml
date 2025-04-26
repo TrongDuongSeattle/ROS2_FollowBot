@@ -1,4 +1,4 @@
-name: ROS2 CI
+name: ROS2 Jazzu CI (with Container)
 
 on:
   push:
@@ -11,6 +11,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    container:
+      image: ubuntu:noble
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -18,8 +20,7 @@ jobs:
       - name: Setup ROS2 environment
         uses: ros-tooling/setup-ros@v0.7
         with:
-          required-ros-distributions: humble  # Adjust version accordingly
-          use-ros2-testing: true # Enables testing repository for Jazzy
+          required-ros-distributions: jazzy  # Adjust version accordingly
 
       - name: Update and Upgrade Packages
         run: |
@@ -31,9 +32,8 @@ jobs:
           cd FollowBotAROS2 # Navigate to the correct directory
           ls -la
 
-      - name: Build and test
-        uses: ros-tooling/action-ros-ci@v0.2
-        with:
-          target-ros2-distro: humble
-          colcon-defaults: >-
-            {"build": {"cmake-args": ["-DCMAKE_BUILD_TYPE=Release"]}}
+      - name: Build your workspace
+        run: |
+          source /opt/ros/jazzy/setup.bash
+          colcon build --symlink-install
+        
