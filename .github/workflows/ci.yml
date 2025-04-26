@@ -33,6 +33,8 @@ jobs:
 
       - name: Install geographiclib
         run: |
+          sudo apt-get update -y
+          sudo apt-cache search geographiclib
           sudo apt-get install -y geographiclib-dev
     
       - name: Move to ROS2 workspace
