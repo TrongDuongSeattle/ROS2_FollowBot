@@ -21,27 +21,33 @@ class cmd_velSerialNode : public rclcpp::Node {
 			"/cmd_vel", 10,
 			std::bind(&cmd_velSerialNode::cmd_velCallback, this, std::placeholders::_1)
 		);
-
+		
 		RCLCPP_INFO(this->get_logger(), "Started cmd_velSerialNode");
 	}
 
  private:
 	//TODO: send as JSON
 	void cmd_velCallback(geometry_msgs::msg::Twist::SharedPtr msg) {
-		nlohmann::json js; 
+		RCLCPP_INFO(this->get_logger(), "cmd_velCallback: linear.x = %f, angular.z = %f", msg->linear.x, msg->angular.z);
+		nlohmann::json js;
+		
+		js["sensor_type"] = "cmd_vel"; // Add sensor_type field
 
-		js["sensor_type"] = "cmd_vel";
+		// Creating a data object
+		nlohmann::json data_obj;
 
-		js["linear"]["x"] = msg->linear.x;
-		js["linear"]["y"] = msg->linear.y;
-		js["linear"]["z"] = msg->linear.z;
+		data_obj["linear"]["x"] = msg->linear.x;
+		data_obj["linear"]["y"] = msg->linear.y;
+		data_obj["linear"]["z"] = msg->linear.z;
 
 		// Add angular velocity components
-		js["angular"]["x"] = msg->angular.x;
-		js["angular"]["y"] = msg->angular.y;
-		js["angular"]["z"] = msg->angular.z;
+		data_obj["angular"]["x"] = msg->angular.x;
+		data_obj["angular"]["y"] = msg->angular.y;
+		data_obj["angular"]["z"] = msg->angular.z;
 		
-		std::string json_str = js.dump(4);
+		// Assign the populated "data" object to the main JSON
+		js["data"] = data_obj;
+		std::string json_str = js.dump(-1); // Use 4 for pretty printing if desired, or -1 for compact
 
 		SerialManager::get().write_line(json_str.c_str());
 		RCLCPP_INFO(this->get_logger(), "published json: \n\t%s", json_str.c_str());

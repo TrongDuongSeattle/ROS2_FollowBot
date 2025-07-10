@@ -16,6 +16,7 @@ class SerialManagerNode : public rclcpp::Node {
 		RCLCPP_INFO(get_logger(), 
 			"SerialManager initialized on %s.", port_name.c_str());
 	 }
+
 };
 
 #include <rclcpp_components/register_node_macro.hpp>
