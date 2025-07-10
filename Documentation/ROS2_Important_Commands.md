@@ -226,7 +226,7 @@ Install with:
 
 ```
 sudo apt-get update
-sudo apt-get install ros-jazzy-navigation2 ros-humble-nav2-bringup
+sudo apt-get install ros-jazzy-navigation2 ros-jazzy-nav2-bringup
 ```
 Key nodes:
 * `controller_server`: generates velocity commands (/cmd_vel) to follow the path
